@@ -52,3 +52,21 @@ Flynarc use a long term supported version of react-router-dom to display differe
 
 5. Create a <Switch></Switch> and a `<Route exact path="/" render={() => {}} />` for each destination.
 
+
+API
+---
+1. Run in terminal:
+`npm install axios`
+
+2. Createa an "api" directory inside src, and a file: `axiosDefaults.js`
+
+3. add the following content:
+`
+import axios from "axios";
+
+axios.defaults.baseURL = 'https://flynarc-api-824d94b4a80f.herokuapp.com/'
+axios.defaults.headers.post['Content-Type'] = 'multipart/form-data'
+axios.defaults.withCredentials = true;
+`
+
+4. Inside App.js, import `import './api/axiosDefaults';`
