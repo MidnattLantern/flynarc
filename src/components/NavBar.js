@@ -2,22 +2,23 @@ import React from "react";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import styles from '../styles/NavBar.module.css'
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
     return (
         <Navbar expand="md" fixed="top">
         <Container className={styles.NavBarIsland}>
-            <Navbar.Brand href="/">FLYNARC</Navbar.Brand>
+
+            <Navbar.Brand>FLYNARC</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav className={styles.NavBarGroup}>
 
-                <Nav.Link className={styles.NavBarButton} href="/"><i className="fas fa-home" /> Home</Nav.Link>
-                <Nav.Link className={styles.NavBarButton} href="https://flynarc-api-824d94b4a80f.herokuapp.com/" target="_blank">API</Nav.Link>
-                <Nav.Link className={styles.NavBarButton} href="/sign-in">Sign in</Nav.Link>
-                <Nav.Link className={styles.NavBarButton} href="/sign-up">Sign up</Nav.Link>
+                <NavLink className={styles.NavBarButton} exact activeClassName={styles.Active} to="/"><i className="fas fa-home" /> Home</NavLink>
+                <NavLink className={styles.NavBarButton} exact activeClassName={styles.Active} to="https://flynarc-api-824d94b4a80f.herokuapp.com/" target="_blank">API</NavLink>
+                <NavLink className={styles.NavBarButton} exact activeClassName={styles.Active} to="/signin">Sign in</NavLink>
+                <NavLink className={styles.NavBarButton} exact activeClassName={styles.Active} to="/signup">Sign up</NavLink>
 
             </Nav>
             </Navbar.Collapse>

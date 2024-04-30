@@ -35,3 +35,20 @@ Flynarc use React-bootstrap for styling shortcuts.
 `import Button from "react-bootstrap/Button";`
 Then this in the render view:
 `<Button>bootstrap button</Button>`
+
+Routing
+---
+Flynarc use a long term supported version of react-router-dom to display different content depending on the url. To setup:
+1. Run in terminal:
+`npm install react-router-dom@5.3.0`
+
+2. In index.js, import:
+`import {BrowserRouter as Router} from 'react-router-dom'
+
+3. In index.js wrap <App /> with <Router></Router>`
+
+4. In any file that use the routing, such as App.js, import:
+`import {Route, Switch} from 'react-router-dom';`
+
+5. Create a <Switch></Switch> and a `<Route exact path="/" render={() => {}} />` for each destination.
+
