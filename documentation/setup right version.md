@@ -1,3 +1,16 @@
+This deserve its own spot.
+
+To match the long term version, set the package.json list to these:
+`
+    "bootstrap": "^4.6.0",
+    "react": "^17.0.2",
+    "react-bootstrap": "^1.6.3",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.3.0",
+`
+
+The index.js file may not be in sync, this is the template:
+`
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -18,3 +31,5 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+`
