@@ -2,6 +2,9 @@ This deserve its own spot.
 
 To match the long term version, set the package.json list to these:
 `
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "axios": "^1.6.8",
     "bootstrap": "^4.6.0",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.3",
