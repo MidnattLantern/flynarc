@@ -1,8 +1,8 @@
 import React from "react";
 import { Container, Form } from "react-bootstrap";
-import styles from "../../styles/SignUpForm.module.css"
+import styles from "../../styles/SignInForm.module.css"
 
-const SignUpForm = () => {
+const SignInForm = () => {
 
     return (
         <div>
@@ -23,29 +23,20 @@ const SignUpForm = () => {
                         placeholder="Password"
                         />
                     </Form.Group>
-                    <br/>
-
-                    <Form.Group>
-                        <Form.Control
-                        type="password"
-                        placeholder="Confirm Password"
-                        />
-                    </Form.Group>
                     <hr/>
 
-                    <div className={styles.SignUpDiv}>
+                    <div className={styles.SignInDiv}>
                         <button className={styles.Button}>
-                            Sign up
+                            Sign in
                         </button>
-                        <p className={styles.SignInParagraph}>
-                            or <a href="signin" className={styles.Anchor}>Sign in</a>
+                        <p className={styles.SignUpParagraph}>
+                            or <a href="signup" className={styles.Anchor}>Sign up</a>
                         </p>
                     </div>
-
                 </Form>
             </Container>
         </div>
     )
 };
 
-export default SignUpForm;
+export default SignInForm;
