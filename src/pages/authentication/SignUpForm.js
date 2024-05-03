@@ -25,7 +25,11 @@ const SignUpForm = () => {
         placeholderPassword1,
         placeholderPassword2,
     } = placeholder;
-    const [errors, setErrors] = useState({});
+    const [errors, setErrors] = useState({
+        username: "",
+        password1: "",
+        password2: "",
+    });
 
     const history = useHistory();
 
@@ -50,7 +54,8 @@ const SignUpForm = () => {
 //            placeholderPassword2: ("‼️ " + "also also error"),
 //            });
             setErrors(err.response?.data);
-            console.log("error test ", errors)
+            console.log("error test 1: ", errors)
+            console.log("error test 2: ", errors.response?.data)
         }
         setSignUpData({
             username: "",
@@ -68,7 +73,7 @@ const SignUpForm = () => {
                         <Form.Control
                         name="username"
                         type="text"
-                        placeholder={placeholderUsername}
+                        placeholder={"Username..." + errors.username}
                         value={username}
                         onChange={handleChange}
                         />
@@ -79,7 +84,7 @@ const SignUpForm = () => {
                         <Form.Control
                         name="password1"
                         type="password"
-                        placeholder={placeholderPassword1}
+                        placeholder={"Password..." + errors.password1}
                         value={password1}
                         onChange={handleChange}
                         />
@@ -90,7 +95,7 @@ const SignUpForm = () => {
                         <Form.Control
                         name="password2"
                         type="password"
-                        placeholder={placeholderPassword2}
+                        placeholder={"Confirm Password..." + errors.password2}
                         value={password2}
                         onChange={handleChange}
                         />
