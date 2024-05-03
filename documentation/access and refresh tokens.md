@@ -1,15 +1,13 @@
-import React, { createContext, useContext, useEffect, useState, useMemo } from "react";
-import axios from "axios";
-import { axiosReq, axiosRes } from "../api/axiosDefaults";
-import { useHistory } from "react-router";
+Flynarc use access and refresh tokens to allow a user to be authenticated for longer than 5 minutes.
 
-export const CurrentAuthenticationContext = createContext();
-export const setCurrentAuthenticationContext = createContext();
+1. Inside api > axiosDefaults.js, export:
+`export const axiosReq = axios.create();`
+`export const axiosRes = axios.create();`
 
-export const useCurrentAuthentication = () => useContext(CurrentAuthenticationContext);
-export const useSetCurrentAuthentication = () => useContext(setCurrentAuthenticationContext);
+2. Inside CurrentAuthenticationContext.js, import useHistory, useMemo, and `import { axiosReq, axiosRes } from "../api/axiosDefaults"`
 
-export const CurrentAuthenticationProvider = ({children}) => {
+3. Following code is not neccessary to explain, paste the following code to CurrentAuthenticationContext.js:
+`
     const [currentAuthentication, setCurrentAuthentication] = useState(null);
     const history = useHistory();
 
@@ -67,14 +65,6 @@ export const CurrentAuthenticationProvider = ({children}) => {
         }
       );
   }, [history]);
+`
 
-    return (
-        <div>
-            <CurrentAuthenticationContext.Provider value={currentAuthentication}>
-                <setCurrentAuthenticationContext.Provider value={setCurrentAuthentication}>
-                    {children}
-                </setCurrentAuthenticationContext.Provider>
-            </CurrentAuthenticationContext.Provider>
-        </div>
-    )
-};
+4. Add `const history = useHistory();` underneath useState for authentication.
