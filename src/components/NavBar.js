@@ -1,13 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import styles from '../styles/NavBar.module.css'
 import { NavLink } from "react-router-dom";
 import { CurrentAuthenticationContext } from "../App";
+import { useCurrentAuthentication } from "../contexts/CurrentAuthenticationContext";
 
 const NavBar = () => {
-    const CurrentAuthentication = useContext(CurrentAuthenticationContext)
+    const CurrentAuthentication = useCurrentAuthentication();
 
     const nonAuthenticatedOptions = <div>
         <p>not authenticated</p>

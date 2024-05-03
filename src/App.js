@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React from "react";
 import styles from "./App.module.css";
 import NavBar from './components/NavBar';
 import Container from 'react-bootstrap/Container';
@@ -6,12 +6,17 @@ import {Route, Switch} from 'react-router-dom';
 import './api/axiosDefaults';
 import SignUpForm from "./pages/authentication/SignUpForm";
 import SignInForm from "./pages/authentication/SignInForm";
-import axios from "axios";
+//import axios from "axios";
 
+// Transfered to CurrentAuthenticationContext.js
+/*
 export const CurrentAuthenticationContext = createContext();
 export const setCurrentAuthenticationContext = createContext();
+*/
 
 function App() {
+// Transfered to CurrentAuthenticationContext.js
+/*
   const [authentication, setAuthentication] = useState(null)
   const handleMount = async () => {
     try {
@@ -24,21 +29,18 @@ function App() {
   useEffect(() => {
     handleMount()
   }, []);
+  */
 
   return (
-    <CurrentAuthenticationContext.Provider value={authentication}>
-      <setCurrentAuthenticationContext.Provider value={setAuthentication}>
-        <div >
-          <NavBar />
-          <Container className={styles.MainView}>
-            <Switch>
-              <Route exact path="/signin" render={() => <SignInForm /> } />
-              <Route exact path="/signup" render={() => <SignUpForm />} />
-            </Switch>
-          </Container>
-        </div>
-      </setCurrentAuthenticationContext.Provider>
-    </CurrentAuthenticationContext.Provider>
+    <div >
+      <NavBar />
+      <Container className={styles.MainView}>
+        <Switch>
+          <Route exact path="/signin" render={() => <SignInForm /> } />
+          <Route exact path="/signup" render={() => <SignUpForm />} />
+        </Switch>
+      </Container>
+    </div>
   );
 }
 

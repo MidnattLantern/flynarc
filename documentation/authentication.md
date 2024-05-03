@@ -44,3 +44,16 @@ handleMount()
 10. Inside the const, add this:
 `const CurrentAuthentication = useContext(CurrentAuthenticationContext)`
 
+11. The authentication code have been transfered to src > contexts > CurrentAuthenticationContext.js but the code remain commented, while return statements are deleted.
+
+12. Inside index.js import CurrentAuthenticationContext and wrap <App /> with <CurrentAuthenticationContext></CurrentAuthenticationContext>
+
+13. Inside CurrentAuthenticationContext.js add these useContext:
+`export const useCurrentAuthentication = () => useContext(CurrentAuthenticationContext)`
+`export const useSetCurrentAuthentication = () => useContext(setCurrentAuthenticationContext)`
+
+14. In SignInForm, replace `const setAuthentication =` with:
+`const setAuthentication = useSetCurrentAuthentication();`
+
+15. In NavBar, replace `const CurrentAuthentication =` with:
+`const CurrentAuthentication = useCurrentAuthentication();`

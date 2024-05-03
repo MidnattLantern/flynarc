@@ -4,9 +4,10 @@ import styles from "../../styles/SignInForm.module.css"
 import axios from "axios";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { setCurrentAuthenticationContext } from "../../App";
+import { useSetCurrentAuthentication } from "../../contexts/CurrentAuthenticationContext";
 
 const SignInForm = () => {
-    const setAuthentication = useContext(setCurrentAuthenticationContext);
+    const setAuthentication = useSetCurrentAuthentication();
 
     const [signInData, setSignInData] = useState({
         username: "",
