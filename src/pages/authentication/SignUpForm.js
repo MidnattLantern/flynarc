@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Form } from "react-bootstrap";
+import { Alert, Container, Form } from "react-bootstrap";
 import styles from "../../styles/SignUpForm.module.css"
 import axios from "axios";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
@@ -7,24 +7,25 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 const SignUpForm = () => {
     const [signUpData, setSignUpData] = useState({
         username: "",
-        password: "",
-        confirmPassword: "",
+        password1: "",
+        password2: "",
     });
     const [ placeholder, setPlaceholder ] = useState({
-        placeholderUsername: "Username",
-        placeholderPassword: "Password",
-        placeholderConfirmPassword: "Confirm Password",
+        placeholderUsername: "username",
+        placeholderPassword1: "password1",
+        placeholderPassword2: "password2",
     });
     const {
         username,
-        password,
-        confirmPassword,
+        password1,
+        password2,
     } = signUpData;
     const {
         placeholderUsername,
-        placeholderPassword,
-        placeholderConfirmPassword,
+        placeholderPassword1,
+        placeholderPassword2,
     } = placeholder;
+    const [errors, setErrors] = useState({});
 
     const history = useHistory();
 
@@ -43,8 +44,19 @@ const SignUpForm = () => {
             history.push('/signin')
             console.log("Redirected to /signin")
         } catch(err) {
-            console.log("Error: ", err)
+//            setPlaceholder({
+//            placeholderUsername: ("‼️ " + "error"),
+//            placeholderPassword1: ("‼️ " + "also error"),
+//            placeholderPassword2: ("‼️ " + "also also error"),
+//            });
+            setErrors(err.response?.data);
+            console.log("error test ", errors)
         }
+        setSignUpData({
+            username: "",
+            password1: "",
+            password2: "",
+        });
     }
 
     return (
@@ -65,10 +77,10 @@ const SignUpForm = () => {
 
                     <Form.Group>
                         <Form.Control
-                        name="password"
+                        name="password1"
                         type="password"
-                        placeholder={placeholderPassword}
-                        value={password}
+                        placeholder={placeholderPassword1}
+                        value={password1}
                         onChange={handleChange}
                         />
                     </Form.Group>
@@ -76,10 +88,10 @@ const SignUpForm = () => {
 
                     <Form.Group>
                         <Form.Control
-                        name="confirmPassword"
+                        name="password2"
                         type="password"
-                        placeholder={placeholderConfirmPassword}
-                        value={confirmPassword}
+                        placeholder={placeholderPassword2}
+                        value={password2}
                         onChange={handleChange}
                         />
                     </Form.Group>
@@ -89,6 +101,7 @@ const SignUpForm = () => {
                         <button className={styles.Button}>
                             Sign up
                         </button>
+
                         <p className={styles.SignInParagraph}>
                             or <a href="signin" className={styles.Anchor}>Sign in</a>
                         </p>

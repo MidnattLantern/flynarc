@@ -43,7 +43,7 @@ Flynarc use a long term supported version of react-router-dom to display differe
 `npm install react-router-dom@5.3.0`
 
 2. In index.js, import:
-`import {BrowserRouter as Router} from 'react-router-dom'
+`import {BrowserRouter as Router} from 'react-router-dom'`
 
 3. In index.js wrap <App /> with <Router></Router>`
 
