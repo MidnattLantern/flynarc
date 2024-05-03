@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Alert, Container, Form } from "react-bootstrap";
+import { Container, Form } from "react-bootstrap";
 import styles from "../../styles/SignUpForm.module.css"
 import axios from "axios";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
@@ -44,18 +44,10 @@ const SignUpForm = () => {
         event.preventDefault();
         try {
             await axios.post('/dj-rest-auth/registration/', signUpData)
-            console.log("Success. Submitted signup Data: ", signUpData)
             history.push('/signin')
             console.log("Redirected to /signin")
         } catch(err) {
-//            setPlaceholder({
-//            placeholderUsername: ("‼️ " + "error"),
-//            placeholderPassword1: ("‼️ " + "also error"),
-//            placeholderPassword2: ("‼️ " + "also also error"),
-//            });
             setErrors(err.response?.data);
-            console.log("error test 1: ", errors)
-            console.log("error test 2: ", errors.response?.data)
         }
         setSignUpData({
             username: "",

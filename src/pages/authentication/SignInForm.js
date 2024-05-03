@@ -1,26 +1,70 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Form } from "react-bootstrap";
 import styles from "../../styles/SignInForm.module.css"
+import axios from "axios";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const SignInForm = () => {
+    const [signInData, setSignInData] = useState({
+        username: "",
+        password: "",
+    });
+    const {
+        username,
+        password,
+    } = signInData;
+    const [ placeholder, setPlaceholder] = useState({
+        username: "",
+        password:"",
+    });
+    const history = useHistory();
+
+    const handleChange = (event) => {
+        setSignInData({
+            ...signInData,
+            [event.target.name]: event.target.value,
+        });
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            await axios.post("/dj-rest-auth/login/", signInData);
+            console.log("signed in")
+            history.push("/");
+        } catch(error) {
+            setPlaceholder(error.response?.data)
+            console.log("error: " + error)
+        }
+        setSignInData({
+            username: "",
+            password: "",
+        });
+    };
 
     return (
         <div>
             <Container>
-                <Form className={styles.AuthenticationIsland}>
+                <Form className={styles.AuthenticationIsland} onSubmit={handleSubmit}>
 
                     <Form.Group>
                         <Form.Control
+                        name="username"
                         type="text"
-                        placeholder="Username"
+                        placeholder={"Username..." + placeholder.username}
+                        value={username}
+                        onChange={handleChange}
                         />
                     </Form.Group>
                     <br/>
 
                     <Form.Group>
                         <Form.Control
+                        name="password"
                         type="password"
-                        placeholder="Password"
+                        placeholder={"Password..." + placeholder.password}
+                        value={password}
+                        onChange={handleChange}
                         />
                     </Form.Group>
                     <hr/>
