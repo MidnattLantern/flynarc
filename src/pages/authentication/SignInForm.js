@@ -1,9 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Container, Form } from "react-bootstrap";
 import styles from "../../styles/SignInForm.module.css"
 import axios from "axios";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { setCurrentAuthenticationContext } from "../../App";
+//import { setCurrentAuthenticationContext } from "../../App";
 import { useSetCurrentAuthentication } from "../../contexts/CurrentAuthenticationContext";
 
 const SignInForm = () => {
@@ -54,6 +54,7 @@ const SignInForm = () => {
 
                     <Form.Group>
                         <Form.Control
+                        className={styles.FormControl}
                         name="username"
                         type="text"
                         placeholder={"Username..." + placeholder.username}
@@ -65,6 +66,7 @@ const SignInForm = () => {
 
                     <Form.Group>
                         <Form.Control
+                        className={styles.FormControl}
                         name="password"
                         type="password"
                         placeholder={"Password..." + placeholder.password}
@@ -78,7 +80,7 @@ const SignInForm = () => {
                         <button className={styles.Button}>
                             Sign in
                         </button>
-                        <p className={styles.SignUpParagraph}>
+                        <p className={styles.SignInParagraph}>
                             or <a href="signup" className={styles.Anchor}>Sign up</a>
                         </p>
                     </div>

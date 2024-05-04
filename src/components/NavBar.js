@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import styles from '../styles/NavBar.module.css'
 import { NavLink } from "react-router-dom";
-import { CurrentAuthenticationContext } from "../App";
+//import { CurrentAuthenticationContext } from "../App";
 import { useCurrentAuthentication, useSetCurrentAuthentication } from "../contexts/CurrentAuthenticationContext";
 import axios from "axios";
 

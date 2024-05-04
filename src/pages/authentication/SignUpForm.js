@@ -10,21 +10,13 @@ const SignUpForm = () => {
         password1: "",
         password2: "",
     });
-    const [ placeholder, setPlaceholder ] = useState({
-        placeholderUsername: "username",
-        placeholderPassword1: "password1",
-        placeholderPassword2: "password2",
-    });
+
     const {
         username,
         password1,
         password2,
     } = signUpData;
-    const {
-        placeholderUsername,
-        placeholderPassword1,
-        placeholderPassword2,
-    } = placeholder;
+
     const [errors, setErrors] = useState({
         username: "",
         password1: "",
@@ -63,6 +55,7 @@ const SignUpForm = () => {
 
                     <Form.Group>
                         <Form.Control
+                        className={styles.FormControl}
                         name="username"
                         type="text"
                         placeholder={"Username..." + errors.username}
@@ -74,6 +67,7 @@ const SignUpForm = () => {
 
                     <Form.Group>
                         <Form.Control
+                        className={styles.FormControl}
                         name="password1"
                         type="password"
                         placeholder={"Password..." + errors.password1}
@@ -85,6 +79,7 @@ const SignUpForm = () => {
 
                     <Form.Group>
                         <Form.Control
+                        className={styles.FormControl}
                         name="password2"
                         type="password"
                         placeholder={"Confirm Password..." + errors.password2}
@@ -98,8 +93,7 @@ const SignUpForm = () => {
                         <button className={styles.Button}>
                             Sign up
                         </button>
-
-                        <p className={styles.SignInParagraph}>
+                        <p className={styles.SignUpParagraph}>
                             or <a href="signin" className={styles.Anchor}>Sign in</a>
                         </p>
                     </div>
