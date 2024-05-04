@@ -52,6 +52,8 @@ const SignUpForm = () => {
         <div>
             <Container>
                 <Form className={styles.AuthenticationIsland} onSubmit={handleSubmit}>
+                    <h1>Sign up</h1>
+                    <br/>
 
                     <Form.Group>
                         <Form.Control

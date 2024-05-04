@@ -14,14 +14,10 @@
     border: 2px solid rgb(255, 100, 125);
 }
 
-.Test {
-    border: white 1px solid;
-}
 
 .NavBarContainer {
     margin: 10px;
-/*    border: 1px solid rgb(50, 50, 50);*/
-    border: 1px solid white;
+    border: 1px solid rgb(50, 50, 50);
     background-color: rgb(30, 30, 30);
     padding: 10px;
     border-radius: 5px;
