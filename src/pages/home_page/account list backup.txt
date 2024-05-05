@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useLocation } from "react-router";
+import { fetchMoreData } from "../../utils/utils";
+import InfiniteScroll from "react-infinite-scroll-component/dist";
 import Account from "./Account";
 
 const AccountList = () => {
@@ -24,16 +26,22 @@ const AccountList = () => {
     return (
         <div>
             <h1>Account list</h1>
-            <p>Accounts: {accountList.length}</p>
+            <p>Accounts: {accountList.results.length}</p>
             <br/>
             { hasLoaded ? (
-                accountList.length ? (
-                    accountList.map((key) => (
+                accountList.results.length ? (
+                    <InfiniteScroll 
+                    children={accountList.results.map((key) => (
                         <>
                             <Account key={key.id} {...key} setAccountList={setAccountList}/>
-                            {console.log("list test: " + accountList.length)}
+                            {console.log("list test: " + accountList.results.length)}
                         </>
-                    ))
+                        ))}
+                    dataLength={accountList.results.length}
+                    loader="Fetching..."
+                    hasMore={!!accountList.next}
+                    next={() => fetchMoreData(accountList, setAccountList)}
+                    />
                 ) : (<>Fetching...</>)
             ) : (
                 <p>Loading...</p>

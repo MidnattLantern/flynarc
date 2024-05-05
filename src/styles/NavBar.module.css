@@ -14,7 +14,6 @@
 }
 
 .Active {
-    color: rgb(255, 100, 125);
     background-color: rgb(30, 30, 30);
     border: 2px solid rgb(0, 0, 0);
 }

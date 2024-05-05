@@ -69,12 +69,10 @@ export const CurrentAuthenticationProvider = ({children}) => {
   }, [history]);
 
     return (
-        <div>
-            <CurrentAuthenticationContext.Provider value={currentAuthentication}>
-                <setCurrentAuthenticationContext.Provider value={setCurrentAuthentication}>
-                    {children}
-                </setCurrentAuthenticationContext.Provider>
-            </CurrentAuthenticationContext.Provider>
-        </div>
+      <CurrentAuthenticationContext.Provider value={currentAuthentication}>
+          <setCurrentAuthenticationContext.Provider value={setCurrentAuthentication}>
+            {children}
+          </setCurrentAuthenticationContext.Provider>
+      </CurrentAuthenticationContext.Provider>
     )
 };
