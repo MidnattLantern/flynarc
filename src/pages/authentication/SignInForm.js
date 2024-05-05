@@ -38,8 +38,8 @@ const SignInForm = () => {
             console.log("signed in")
             history.push("/");
         } catch(error) {
-            setPlaceholder(error.response?.data)
-            console.log("error: " + error)
+            setPlaceholder(error.response?.data);
+            console.log("error: " + error);
         }
         setSignInData({
             username: "",
@@ -86,6 +86,7 @@ const SignInForm = () => {
                             or <a href="signup" className={styles.Anchor}>Sign up</a>
                         </p>
                     </div>
+
                 </Form>
             </Container>
         </div>

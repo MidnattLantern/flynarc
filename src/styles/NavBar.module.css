@@ -1,17 +1,22 @@
 .NavBarButton {
     width: 100px;
     padding: 10px;
-    border: 1px solid rgb(200, 200, 200);
-    border-radius: 3px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 5px;
     margin: 5px;
     text-align: center;
     color: rgb(200, 200, 200);
     text-decoration: none;
+    border: 2px solid rgb(0, 0, 0);
+}
+.NavBarButton:hover {
+    color: rgb(255, 100, 125);
 }
 
 .Active {
     color: rgb(255, 100, 125);
-    border: 2px solid rgb(255, 100, 125);
+    background-color: rgb(30, 30, 30);
+    border: 2px solid rgb(0, 0, 0);
 }
 
 
