@@ -6,7 +6,8 @@ import './api/axiosDefaults';
 import SignUpForm from "./pages/authentication/SignUpForm";
 import SignInForm from "./pages/authentication/SignInForm";
 import SignOutPage from "./pages/authentication/SignOutPage";
-import HomePage from "./pages/main_page/HomePage";
+import HomePage from "./pages/home_page/HomePage";
+import AccountList from "./pages/home_page/AccountList";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
             <Route exact path="/signin" render={() => <SignInForm /> } />
             <Route exact path="/signup" render={() => <SignUpForm />} />
             <Route exact path="/signout" render={() => <SignOutPage />} />
+            <Route exact path="/accountlist" render={() => <AccountList />} />
 
             <Route exact path="/" render={() => <HomePage />} />
             <Route path="/" render={() => <h1>Page not found</h1>} />
