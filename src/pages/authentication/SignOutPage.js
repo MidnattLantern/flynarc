@@ -4,8 +4,10 @@ import styles from "../../styles/SignOutPage.module.css";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useCurrentAuthentication, useSetCurrentAuthentication } from "../../contexts/CurrentAuthenticationContext";
 import axios from "axios";
+import { useRedirect } from "../../hooks/useRedirect";
 
 const SignOutPage = () => {
+    useRedirect('unauthenticated');
     const currentAuthentication = useCurrentAuthentication();
     const setCurrentAuthentication = useSetCurrentAuthentication();
 

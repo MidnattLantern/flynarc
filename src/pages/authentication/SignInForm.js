@@ -3,12 +3,12 @@ import { Container, Form } from "react-bootstrap";
 import styles from "../../styles/SignInForm.module.css"
 import axios from "axios";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-//import { setCurrentAuthenticationContext } from "../../App";
 import { useSetCurrentAuthentication } from "../../contexts/CurrentAuthenticationContext";
+import { useRedirect } from "../../hooks/useRedirect";
 
 const SignInForm = () => {
+    useRedirect('authenticated');
     const setAuthentication = useSetCurrentAuthentication();
-
     const [signInData, setSignInData] = useState({
         username: "",
         password: "",
