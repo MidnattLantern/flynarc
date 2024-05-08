@@ -24,17 +24,17 @@ const AccountList = () => {
     return (
         <div>
             <h1>Account list</h1>
-            <p>Accounts: {accountList.length}</p>
+            <p>Accounts: {accountList.results.length}</p>
             <br/>
             { hasLoaded ? (
-                accountList.length ? (
-                    accountList.map((key) => (
+                accountList.results.length ? (
+                    accountList.results.map((key) => (
                         <>
                             <Account key={key.id} {...key} setAccountList={setAccountList}/>
-                            {console.log("list test: " + accountList.length)}
+                            {console.log("list test: " + accountList.results.length)}
                         </>
                     ))
-                ) : (<>Fetching...</>)
+                ) : (<p>Failed to load</p>)
             ) : (
                 <p>Loading...</p>
             )}

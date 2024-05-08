@@ -8,6 +8,8 @@ import SignInForm from "./pages/authentication/SignInForm";
 import SignOutPage from "./pages/authentication/SignOutPage";
 import HomePage from "./pages/home_page/HomePage";
 import AccountList from "./pages/home_page/AccountList";
+import PilotPostList from "./pages/pilotpost/PilotPostList";
+import PilotPostCreateForm from "./pages/pilotpost/PilotPostCreateForm";
 
 function App() {
 
@@ -21,6 +23,9 @@ function App() {
             <Route exact path="/signup" render={() => <SignUpForm />} />
             <Route exact path="/signout" render={() => <SignOutPage />} />
             <Route exact path="/accountlist" render={() => <AccountList />} />
+
+            <Route exact path="/pilot_post/list" render={() => <PilotPostList />} />
+            <Route exact path="/pilot_post/create" render={() => <PilotPostCreateForm />} />
 
             <Route exact path="/" render={() => <HomePage />} />
             <Route path="/" render={() => <h1>Page not found</h1>} />

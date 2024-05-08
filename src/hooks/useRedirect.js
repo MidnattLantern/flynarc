@@ -13,7 +13,7 @@ export const useRedirect = (userAuthStatus) => {
                     history.push('/');
                 }
             } catch(err){
-                if (userAuthStatus === 'unauehenticated'){
+                if (userAuthStatus === 'unauthenticated'){
                     history.push('/');
                 }
             }
