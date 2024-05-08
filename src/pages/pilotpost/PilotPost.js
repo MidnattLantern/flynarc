@@ -3,6 +3,7 @@ import { useCurrentAuthentication } from "../../contexts/CurrentAuthenticationCo
 import { axiosRes } from "../../api/axiosDefaults";
 import { Link, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { Card } from "react-bootstrap";
+import styles from "../../styles/PilotPost.module.css"
 
 const PilotPost = (props) => {
     const {
@@ -18,7 +19,7 @@ const PilotPost = (props) => {
     return (
         <div>
             <Link to={`/pilot_post/detail/${id}`}>
-                <p>{title}</p>
+                <p className={styles.PilotPostMainLand}>{title}</p>
             </Link>
         </div>
     )

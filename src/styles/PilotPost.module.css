@@ -1,0 +1,10 @@
+.PilotPostMainLand {
+    border: 1px solid rgb(50, 50, 50);
+    background-color: rgb(30, 30, 30);
+    border-radius: 5px;
+    width: 500px;
+    align-items: center;
+    margin: auto;
+    margin-top: 10vh;
+    padding: 20px;
+}
