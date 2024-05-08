@@ -9,7 +9,6 @@ const PilotPost = (props) => {
         id,
         owner,
         title,
-        image,
     } = props;
 
     const currentAuthentication = useCurrentAuthentication();
@@ -18,9 +17,8 @@ const PilotPost = (props) => {
 
     return (
         <div>
-            <Link to={`/pilot_post/${id}`}>
+            <Link to={`/pilot_post/detail/${id}`}>
                 <p>{title}</p>
-                <Card.Img src={image} alt={title}/>
             </Link>
         </div>
     )

@@ -10,6 +10,7 @@ import HomePage from "./pages/home_page/HomePage";
 import AccountList from "./pages/home_page/AccountList";
 import PilotPostList from "./pages/pilotpost/PilotPostList";
 import PilotPostCreateForm from "./pages/pilotpost/PilotPostCreateForm";
+import PilotPostDetail from "./pages/pilotpost/PilotPostDetail";
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
 
             <Route exact path="/pilot_post/list" render={() => <PilotPostList />} />
             <Route exact path="/pilot_post/create" render={() => <PilotPostCreateForm />} />
+            <Route exact path="/pilot_post/detail/:id" render={() => <PilotPostDetail /> } />
 
             <Route exact path="/" render={() => <HomePage />} />
             <Route path="/" render={() => <h1>Page not found</h1>} />

@@ -3,27 +3,32 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PilotPost from "./PilotPost";
 import { axiosReq } from "../../api/axiosDefaults";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 const PilotPostList = () => {
     const [pilotPostList, setPilotPostList] = useState({ results: [] });
+    const [hasLoaded, setHasLoaded] = useState(false);
+    const { pathname } = useLocation();
 
     useEffect(() => {
         const fetchPilotPostList = async () => {
             try {
-                const { data } = await axiosReq.get(`/pilot_posts/`);
+                const { data } = await axiosReq.get(`/pilot_post/`);
                 setPilotPostList(data);
+                setHasLoaded(true);
             } catch(err){
                 console.log(err);
             }
         };
         fetchPilotPostList();
-    }, []);
+    }, [pathname]);
 
     return (
         <div>
-            <p>Pilot posts: {pilotPostList.results.length}</p>
-            {pilotPostList.results.length ? (<>
+            {hasLoaded ? (<>
+
+                <h1>Pilot posts: {pilotPostList.results.length}</h1>
+                {pilotPostList.results.length ? (<>
                 <InfiniteScroll
                 children={pilotPostList.results.map((pilotPost) => (
                     <PilotPost key={pilotPost.id} {...pilotPost} setPilotPostList={setPilotPostList} />
@@ -36,6 +41,11 @@ const PilotPostList = () => {
             </>) : (<>
                 <p>false</p>
             </>)}
+
+            </>) : (<>
+            <h1>Loading...</h1>
+            </>)}
+
 
             <Link to="/pilot_post/create">Create</Link>
         </div>

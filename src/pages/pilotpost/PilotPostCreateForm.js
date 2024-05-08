@@ -1,7 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { Button, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 
 const PilotPostCreateForm = () => {
     const [errors, setErrors] = useState({});
@@ -49,6 +49,9 @@ const PilotPostCreateForm = () => {
                     placeholder="Title"
                     />
                 </Form.Group>
+                {errors?.title?.map((message, idx) => (
+                    <p key={idx}>{message}</p>
+                ))}
                 <button type="submit">Submit</button>
             </Form>
         </div>
