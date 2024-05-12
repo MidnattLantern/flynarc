@@ -4,6 +4,7 @@ import { fetchMoreData } from "../../utils/utils";
 import PilotPost from "./PilotPost";
 import { axiosReq } from "../../api/axiosDefaults";
 import { Link, useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import styles from "../../styles/PilotPostList.module.css"
 
 const PilotPostList = () => {
     const [pilotPostList, setPilotPostList] = useState({ results: [] });
@@ -24,14 +25,21 @@ const PilotPostList = () => {
     }, [pathname]);
 
     return (
-        <div>
+        <div className={styles.PilotPostListDiv}>
             {hasLoaded ? (<>
 
                 <h1>Pilot posts: {pilotPostList.results.length}</h1>
+                <Link className={styles.CreatePilotPostButton} to="/pilot_post/create">Create <i className="fa-solid fa-plus"/></Link>
+
                 {pilotPostList.results.length ? (<>
                 <InfiniteScroll
                 children={pilotPostList.results.map((pilotPost) => (
-                    <PilotPost key={pilotPost.id} {...pilotPost} setPilotPostList={setPilotPostList} />
+                    <div className={styles.PilotPostLinkCard}>
+                        <PilotPost key={pilotPost.id} {...pilotPost} setPilotPostList={setPilotPostList} />
+                        <Link className={styles.PilotPostLinkText} to={`/pilot_post/detail/${pilotPost.id}`}>
+                            Details <i className="fa-solid fa-arrow-right"/>
+                        </Link>
+                    </div>
                 ))}
                 dataLength={pilotPostList.results.length}
                 loader={<p>laoding...</p>}
@@ -45,9 +53,6 @@ const PilotPostList = () => {
             </>) : (<>
             <h1>Loading...</h1>
             </>)}
-
-
-            <Link to="/pilot_post/create">Create</Link>
         </div>
     )
 };

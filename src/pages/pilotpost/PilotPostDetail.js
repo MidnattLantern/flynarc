@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { axiosReq } from "../../api/axiosDefaults";
 import PilotPost from "./PilotPost";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import styles from "../../styles/PilotPostDetail.module.css";
 
 const PilotPostDetail = () => {
     const { id } = useParams();
@@ -22,11 +23,14 @@ const PilotPostDetail = () => {
     }, [id]);
 
     return (
-        <div>
+        <div className={styles.PilotPostDetailDiv}>
             <h1>Pilot Post Detail</h1>
-            <PilotPost {...pilotPostDetail.results[0]} setPilotPostDetail={setPilotPostDetail} />
+            <Link className={styles.CreatePilotPostButton} to="/pilot_post/list"><i className="fa-solid fa-arrow-left"/> Go back</Link>
 
-            <p>{id}</p>
+            <div className={styles.PilotPostDetailCard}>
+                <PilotPost {...pilotPostDetail.results[0]} setPilotPostDetail={setPilotPostDetail} />
+            </div>
+
             {id === "abc" ? (<>
                 <p>id is ABC</p>
             </>) : (<>

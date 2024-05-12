@@ -19,7 +19,7 @@ p {
     background-color: rgb(255, 100, 160);
 }
 
-.AuthenticationIsland {
+.PilotPostCreateMainland {
     border: 1px solid rgb(50, 50, 50);
     background-color: rgb(30, 30, 30);
     border-radius: 5px;
@@ -30,11 +30,11 @@ p {
     padding: 20px;
 }
 
-.SignOutDiv {
+.PilotPostCreateDiv {
     display: flex;
 }
 
-.SignOutParagraph {
+.PilotPostCreateParagraph {
     padding-top: 8px;
     padding-left: 10px;
     margin-top: 10px;
@@ -49,13 +49,27 @@ p {
     color: rgb(200, 200, 200)
 }
 
-.FormControl, .FormControl:focus {
+.FormControl {
     background-color: rgb(30, 30, 30);
     color: rgb(200, 200, 200);
-    border: none;
-    border-radius: 0px;
-    border-bottom: 1px solid rgb(200, 200, 200);
+    border-radius: 3px;
+    border: 2px solid rgb(50, 50, 50);
+}
+.FormControl:focus {
+    background-color: rgb(0, 0, 0);
+    color: rgb(200, 200, 200);
+    border: 2px solid rgb(255, 100, 125);
+    box-shadow: none;
+    border-radius: 3px;
+}
+.FormControl:hover {
+    border: 2px solid rgb(255, 100, 125);
+    box-shadow: 0px 0px 5px rgb(255, 100, 125);
 }
 .FormControl::placeholder {
     color: rgb(200, 200, 200);
+}
+
+.FileUpload {
+    color: white;
 }

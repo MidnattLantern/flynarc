@@ -30,7 +30,7 @@ const SignOutPage = () => {
                     <h1>Sign out</h1>
                     <p>{currentAuthentication?.username}</p>
                     <br/>
-                    <button onClick={handleSignOut}>Sign out</button>
+                    <button  className={styles.Button} onClick={handleSignOut}>Sign out</button>
                 </div>
             </Container>
         </div>
