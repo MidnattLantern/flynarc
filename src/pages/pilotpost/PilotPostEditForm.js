@@ -60,8 +60,8 @@ const PilotPostEditForm = () => {
         }
 
         try {
-            const { data } = await axiosReq.put("/pilot_post/", formData);
-            history.push(`/pilot_post/detail/${data.id}`);
+            const { data } = await axiosReq.put(`/pilot_post/${id}`, formData);
+            history.push(`/pilot_post/detail/${id}`);
         } catch (err) {
             console.log(err);
             if (err.response?.status !== 401) {
@@ -72,7 +72,7 @@ const PilotPostEditForm = () => {
 
     return(
         <div className={styles.PilotPostCreateMainland}>
-            <h1>Pilot post create form</h1>
+            <h1>Pilot post edit form</h1>
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <Form.Control
