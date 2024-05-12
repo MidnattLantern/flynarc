@@ -36,9 +36,6 @@ const PilotPostList = () => {
                 children={pilotPostList.results.map((pilotPost) => (
                     <div className={styles.PilotPostLinkCard}>
                         <PilotPost key={pilotPost.id} {...pilotPost} setPilotPostList={setPilotPostList} />
-                        <Link className={styles.PilotPostLinkText} to={`/pilot_post/detail/${pilotPost.id}`}>
-                            Details <i className="fa-solid fa-arrow-right"/>
-                        </Link>
                     </div>
                 ))}
                 dataLength={pilotPostList.results.length}

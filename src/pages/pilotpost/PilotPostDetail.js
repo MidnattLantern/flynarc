@@ -28,7 +28,7 @@ const PilotPostDetail = () => {
             <Link className={styles.CreatePilotPostButton} to="/pilot_post/list"><i className="fa-solid fa-arrow-left"/> Go back</Link>
 
             <div className={styles.PilotPostDetailCard}>
-                <PilotPost {...pilotPostDetail.results[0]} setPilotPostDetail={setPilotPostDetail} />
+                <PilotPost {...pilotPostDetail.results[0]} setPilotPostDetail={setPilotPostDetail} PilotPostDetail/>
             </div>
 
             {id === "abc" ? (<>

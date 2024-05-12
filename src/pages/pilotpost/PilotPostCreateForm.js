@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { Form } from "react-bootstrap";
+import { Form, Image } from "react-bootstrap";
 import styles from "../../styles/PilotPostCreateForm.module.css";
 
 const PilotPostCreateForm = () => {
@@ -74,6 +74,7 @@ const PilotPostCreateForm = () => {
                 ref={imageInput}
                 />
                 <p>Less than 1MB, 1000px wide and tall</p>
+                <Image className={styles.Image} src={image}/>
 
                 </Form.Group>
                 {errors?.title?.map((message, idx) => (

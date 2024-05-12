@@ -2,10 +2,6 @@
     margin-bottom: 150px;
 }
 
-.Test {
-    border: 1px solid white;
-}
-
 .PilotPostDetailCard {
     border: 1px solid rgb(50, 50, 50);
     background-color: rgb(30, 30, 30);
@@ -30,4 +26,38 @@
 
 .CreatePilotPostButton:hover {
     color: rgb(255, 100, 125);
+}
+
+.EditDeleteDiv {
+    display: flex;
+    text-align: center;
+}
+
+.EditButton {
+    border: 1px solid rgb(50, 50, 50);
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+    width: 70px;
+}
+
+.DeleteButton {
+    border: 1px solid rgb(50, 50, 50);
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+    width: 70px;
+    margin-left: 20px;
+}
+
+.EditButton:hover {
+    color: rgb(255, 100, 125);
+}
+
+.DeleteButton:hover {
+    color: red;
 }
